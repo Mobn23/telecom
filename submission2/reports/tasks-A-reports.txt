@@ -1,0 +1,11 @@
+I implemented the UDP Sender and then used Wireshark to filter and capture only the UDP packets sent to the destination IP 192.168.50.179 (server or receiver, which is my Android phone):
+    udp && ip.dst == 192.168.50.179
+I observed "Destination Unreachable (Port Unreachable)" messages. Additionally, I saw LLC (Logical Link Control) packets. LLC packets are part of the data link layer (Layer 2) in the OSI model and typically indicate low-level communication between devices.
+I rsolved it by decoding to udp manually from Wireshark -> Right click -> decode as-> udpcp.
+So i started watching all the data now all the packets they all have the same len = 1475 which is correct cause i used in the sender code payload size 1465 + 4 (####) + 5(the digits of the packet's num) + 1 (The ; after packet's num) = 1475
+Took a look on Flow graph as well so everything as expected.
+
+Resciver:
+    i faced an issue in ports so i explained it in UDP-receiver-notes.txt file, now i fixed it and everything is working as expected.
+    So i extracted the sequence num and compiered it with a number of auto increment in order. So once the order broken i print a message of the expected num and the false gotten num. (Packets nums)
+    

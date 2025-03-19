@@ -1,0 +1,20 @@
+I built a HTTP protocol on top of TCP protocol so i refactored the already TCP code with adjustments that align with the requirements.
+Then took a look on the response on terminal & the packets on Wireshark with many filters:
+
+1. Filtered HTTP between 2 IPs:
+    ip.addr == 192.168.50.208 && ip.addr == 46.30.213.174 && http
+        So here filtered the captured packets to capture only the HTTP packets between the client & the server and took a deep look on the different columns Time, Src, Dst ..etc so could see all the requests & responses between those 2 devices(My computer & the remote server).
+        Then i generated a Flow graph (Statistics -> Flow graph) on Wireshark & printed it.
+
+2. Filter Wireshark to captured only Client HTTP packets:
+    ip.src == 192.168.50.208 && http
+        Here filtered displaying only the client's HTTP packets, then clicked on the last packet right click -> Follow -> HTTP stream
+        Then printed the result (result contains all the requests from client to the Server).
+
+
+3. Filter Wireshark to captured only Server HTTP packets:
+    ip.src == 46.30.213.174 && http
+        Here filtered displaying only the Server's HTTP packets, then clicked on the last packet right click -> Follow -> HTTP stream
+        Then printed the result (result contains all the responses from Server to the Client).
+
+Mostly everthing worked easily but it too me long time studying the lectures so understanding the protocols was essencial for this submission. As well as learned how to use Wireshark & what info can we be obtained from it.

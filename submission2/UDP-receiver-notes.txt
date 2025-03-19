@@ -1,0 +1,1 @@
+I faced an issue when interrupted the receiver code on termux on Android phone so the server kept reserving the port 12000 there. So i tried to resove it as usual using lsof -i :12000 but on termux didnt work so i canged the port to 13000 as a quick solution.

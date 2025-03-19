@@ -1,0 +1,8 @@
+How BGP Uses These:
+    When a router in one AS wants to send data to another AS, it looks at the AS Path to decide the best route.
+    BGP helps routers choose the shortest or most reliable path based on AS Path length, and in some cases, other factors like policy or weight assigned by network administrators.
+In Summary:
+    AS number: Identifies a network (AS) in BGP communication.
+    AS Path: Lists all the ASes the data passes through, used for loop prevention and path selection.
+    Next-Hop: Tells the router the next IP address to send the data to.
+    These attributes are essential in BGP to help data travel efficiently across the internet from one AS to another.

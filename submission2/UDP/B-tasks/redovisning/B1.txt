@@ -1,0 +1,20 @@
+B1a- Vilken tid för sleep-funktionen måste du välja för att komma så nära 15 paket/sek
+som möjligt?
+    1/15
+
+B1b- Är sänd-funktionen stabil, dvs skickar den 15 paket/sek?
+    Väldigt nära, jag fick 445 pakets för hela strömmet så 14,8 per sek.
+
+B1c- Visa I/O-grafen över utgående streamingtrafik hos sändaren
+    I Wireshark dir.
+
+B1d- Visa I/O-grafen över mottagande streamingtrafik hos mottagaren.
+Är den annorlunda på något sätt än sändarens graf?
+(den behöver inte vara det men kan vara det, beroende på dator och nätverk)
+    Graphen i Wireshark dir.
+    De är nästan identical men det finns en oerhört lite skillnad som står inte på Receiver IO-graph och det pga UDP så mäjlighet att förlorad ett paket eller några paketer.
+
+B1e- Märker du hos mottagaren att meddelanden inte kommer fram eller hamnar i oordning?
+Prova gärna att stressa nätverket och trafiken genom att köra andra applikationer
+på din dator som använder nätet mycket t.ex. filnedladdning, spel, annan streaming.
+    Jag spelade en Live stream på you-tube så väldigt fler packet förlorad så receiver fick mindre paketer.

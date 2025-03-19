@@ -1,0 +1,24 @@
+TCP uses socket(AF_INET, SOCK_STREAM) and calls methods like connect and accept.
+UDP uses socket(AF_INET, SOCK_DGRAM) and makes use of sendto and recvfrom without establishing a connection.
+
+HTTP is build on TCP always it's built-in in request libraries but now we wanna create it manually.
+High-level libraries (like requests in Python) hide TCP behind simpler function calls to send HTTP requests. Under the hood, they still create a TCP socket, connect, and then send your GET request. In your assignment, you’re just doing all of those steps by hand.
+
+lönedator ip : 192.168.50.208
+Filter HTTP between 2 IPs:
+ip.addr == 192.168.50.208 && ip.addr == 46.30.213.174 && http
+
+Now filter Wireshark to capture only Client HTTP packets:
+ip.src == 192.168.50.208 && http
+
+Now filter Wireshark to capture only Server HTTP packets:
+ip.src == 46.30.213.174 && http
+
+So as for B3 task:
+Download and install Wireshark
+Start a packet capture in Wireshark before running the script
+Run the Python script
+Stop the capture
+(Or we can capture 1st then run teh code it will be updated)
+Filter packets by typing "http" in the filter box or by using the server's IP address
+Examine both the request and response packets by right-clicking on them and selecting "Follow > HTTP Stream"

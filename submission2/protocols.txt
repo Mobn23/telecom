@@ -1,0 +1,38 @@
+UDP vs. TCP
+    UDP: Fast, no guarantee of delivery (used for live streaming, VoIP(Voice over internet protocol(internet calls))).
+    TCP: Reliable, ensures all data arrives (used for file downloads, web browsing).
+
+RTP (Real-time Transport Protocol)
+    Built on UDP, used for real-time streaming (live video, voice calls).
+
+RTSP (Real-Time Streaming Protocol)(Like a remote Control for the stream it can use either TCP or UDP)
+    Controls media streaming (play, pause, seek).
+    Could work with RTP over UDP for real-time delivery.
+
+RTSP + RTP over UDP → Used for real-time, low-latency streaming (e.g., IP cameras, live broadcasting).
+RTSP + RTP over TCP → Used when UDP is blocked (e.g., behind firewalls). This makes it more reliable but adds some delay.
+So RTSP is flexible—it controls the stream and can work with either UDP (faster, real-time) or TCP (more reliable, but slower) depending on the network situation.
+
+HLS (HTTP Live Streaming)
+    Works over HTTP/TCP (more reliable).
+    Uses small media segments for adaptive streaming (YouTube, Netflix).
+
+Streaming Methods:
+    HLS: Uses chunked HTTP files (video split into small segments).
+    RTSP over TCP: Uses a continuous stream of data packets.
+    Latency
+
+    HLS: Higher latency (several seconds delay) because it buffers segments.
+    RTSP over TCP: Lower latency (almost real-time).
+    Compatibility
+
+    HLS: Works on all modern browsers and devices (since it’s HTTP-based).
+    RTSP over TCP: Needs special media players (VLC, security cameras, etc.).
+    Use Cases
+
+    HLS: Best for video on demand and internet streaming (YouTube, Netflix).
+    RTSP over TCP: Best for real-time surveillance and live broadcasting (CCTV (security monitoring cameras), webcams).
+    So even when both use TCP, HLS is better for adaptive playback, while RTSP over TCP is better for low-latency real-time streaming.
+
+Offline Watching
+    Uses TCP-based protocols like HTTP, FTP to download full files before playback.

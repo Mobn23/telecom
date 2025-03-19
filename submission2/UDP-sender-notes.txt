@@ -1,0 +1,3 @@
+MTU Limit(Maximum Transmission Unit): Keeping the packet size within the MTU limit (1500 bytes) avoids fragmentation and ensures efficient transmission.
+Fragmentation Handling: While the network stack can handle fragmentation, it is best to avoid it for optimal performance.
+Adjusted Payload Size: Adjusting the payload size ensures the total packet size fits within the 1500-byte limit.

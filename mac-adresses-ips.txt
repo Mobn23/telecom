@@ -1,0 +1,26 @@
+MAC addresses handle local hops (device-to-device).
+
+IP addresses handle global routing (source-to-destination).
+
+Both work together to get data across the internet! 🌐🔗
+
+
+conclusion:
+    The ips to make sure only while mac adresses transfere the data between the same local network and to the next local network and so on
+
+IP addresses are like addresses for networks, and BGP helps with finding paths between those networks (ASes).
+MAC addresses are used within a local network (like OSPF works inside an AS), but they're not used for global routing. They're mainly used to deliver data to the right device within a local network.
+So, while there’s a similarity in the sense that both MAC addresses and OSPF are local (within networks), BGP and IP addresses work at a global scale, routing data across networks.
+
+
+ex:
+MAC addresses are used in local network communications (e.g., between devices and a cell tower).
+IP addresses are used for routing data across different networks (e.g., from one tower to another, or from the tower to the broader internet).
+
+
+conclusion:
+Within each local network, MAC addresses are used for communication. Between local networks or to the global internet, IP addresses are used for routing (by routers) and ensuring data reaches the correct destination.
+
+
+ ARP protocol are using the IP address to bring the MAC address just like when we did that in MySQL before we get data from table depending on the primary key which is the ID.
+ 
