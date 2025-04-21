@@ -1,0 +1,32 @@
+B2a- Vilken tid för sleep-funktionen måste du välja för att komma så nära 50 paket/sek
+som möjligt?
+- 1.0/50
+
+B2b- Är sänd-funktionen stabil, dvs skickar den 50 paket/sek?
+- Ja, med några fluktuationer (Föe att jag använder WIFI) men mest stabil.
+
+B2c- Visa I/O-grafen över utgående streamingtrafik hos sändaren
+- I ./wireshark dir.
+
+B2d- Visa I/O-grafen över mottagande streamingtrafik hos mottagaren.
+- I ./wireshark dir.
+
+Är den annorlunda på något sätt än sändarens graf?
+(den behöver inte vara det men kan vara det, beroende på dator och nätverk)
+- I exchanged the sender & the receiver between my laptop & Android mobile phone, so ran the each of the sender & the receiver once on phone & once on the laptop, so:
+- Yes, The laptop(As the sender) sends packets at a high rate → mobile’s smaller buffer overflows → high packets loss on mobile.
+- Mobile’s weaker upload capacity (Mobile as a sender) → packets are lost → laptop receives fewer packets.
+
+B2e- Märker du hos mottagaren att meddelanden inte kommer fram eller hamnar i oordning?
+- Yes, some packets weren't in order, so i noticed the message im printing in my receiver's code printing the wrong packet & the serial number supposed to be having.
+
+Prova gärna att stressa nätverket och trafiken genom att köra andra applikationer
+på din dator som använder nätet mycket t.ex. filnedladdning, spel, annan streaming.
+- Mer packeter har inte hamnat i ordning och ett stort spike och sen ett stort drop i början och fluktuationer.
+
+B2f- Märker du någon skillnad hos UDP-trafiken om du jämför med uppgift B1 (låg last).
+Lyckades du få några paketförluster?
+- Ja, många fluktuationer vilket menar att det finns många packeter lost. 
+- I låg last: minimal fluctuations, Few or no packet losses (because the network could handle the light load).
+- I High Load: more fluctuations, flatlines → Packet loss.
+- Mismatch between sender/receiver rates → Confirms drops.

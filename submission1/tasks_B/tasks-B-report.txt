@@ -17,4 +17,4 @@ Then took a look on the response on terminal & the packets on Wireshark with man
         Here filtered displaying only the Server's HTTP packets, then clicked on the last packet right click -> Follow -> HTTP stream
         Then printed the result (result contains all the responses from Server to the Client).
 
-Mostly everthing worked easily but it too me long time studying the lectures so understanding the protocols was essencial for this submission. As well as learned how to use Wireshark & what info can we be obtained from it.
+Mostly everything worked easily but it too me long time studying the lectures so understanding the protocols was essential for this submission. As well as learned how to use Wireshark & what info can we be obtained from it.

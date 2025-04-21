@@ -2,7 +2,7 @@ TCP uses socket(AF_INET, SOCK_STREAM) and calls methods like connect and accept.
 UDP uses socket(AF_INET, SOCK_DGRAM) and makes use of sendto and recvfrom without establishing a connection.
 
 HTTP is build on TCP always it's built-in in request libraries but now we wanna create it manually.
-High-level libraries (like requests in Python) hide TCP behind simpler function calls to send HTTP requests. Under the hood, they still create a TCP socket, connect, and then send your GET request. In your assignment, you’re just doing all of those steps by hand.
+High-level libraries (like requests in Python) hide TCP behind simpler function calls to send HTTP requests. Under the hood, they still create a TCP socket, connect, and then send your GET request. In this assignment, we' re just doing all of those steps by hand.
 
 lönedator ip : 192.168.50.208
 Filter HTTP between 2 IPs:

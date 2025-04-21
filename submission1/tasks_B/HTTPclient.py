@@ -17,7 +17,7 @@ headers = (
     "Connection: close\r\n"
     "\r\n"
 )
-# If we didn't format it this way with each component on its own line (\r\n), the server would return an error because it couldn't understand your request.
+# If we didn't format it this way with each component on its own line (\r\n), the server would return an error because it couldn't understand the request.
 http_request = request_line + headers
 # print("HTTP request: ", http_request)
 clientSocket.send(http_request.encode())

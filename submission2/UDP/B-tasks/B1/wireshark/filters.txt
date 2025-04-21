@@ -1,0 +1,5 @@
+udp && ip.src == 192.168.50.208
+Now i got back my laptop out of reparation so the new client ip became:
+    192.168.50.87
+So on the new laptop i ran:
+    udp && ip.src == 192.168.50.87

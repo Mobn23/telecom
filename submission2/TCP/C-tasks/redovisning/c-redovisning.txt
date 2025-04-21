@@ -1,0 +1,36 @@
+Redovisning C2 ”Resultat TCP-streaming, låg last”
+Frågor att besvara i rapporten
+
+c1. Created TCP client & server.
+
+C2a. Är sänd-funktionen stabil, dvs skickar den 15 paket/sek?
+    Between seconds 14 -> 24 a spike to 30 packets/s happend because of TCP buffering and delay in delivery. Even though the sending loop used a delay ( sleep() ) of approximately 1/7 seconds, the observed rate was higher due to these transmission bursts. This behavior is typical of TCP under low sending rates, after the spike the packets became more stable at 15 packets/sec.
+
+C2b. Visa I/O-grafen över streamingtrafiken till mottagaren.
+Blir det några ordningsfel över huvud taget? Ser du några paketomsändningar?
+(TCP kan ju begära dessa om paket tappas).
+    Yes, many retransmissions occurred when packets were received out of order or when the server’s buffer became full and could no longer handle the incoming packets from the sender. This issue was especially noticeable when I ran the server on my Android phone — almost half of the packets were retransmitted and some were lost, eventually causing the connection to fail. Later, I tested the same setup using my apartment mate's laptop as the server, which worked much better because it had more processing power and a larger buffer capacity than the phone.
+
+C2c. Titta på trafiken från mottagaren? Ser du några ACK-paket?
+Visa en I/O-graf över ACK-paketens trafik från mottagaren tillbaka till sändaren.
+    Ja, jag ser många ACK-packeter.
+    
+
+
+
+UPPGIFT C3, Strömning med 50 paket/sekund
+Kör TCP-kommunikationen med samma förutsättningar som UDP vid hög last, f = 50 paket/sek
+
+Redovisning C3 ”Resultat TCP-streaming, hög last”
+Frågor att besvara i rapporten
+
+C3a. Är sänd-funktionen stabil, dvs skickar den 50 paket /sek?
+    Between 13–22 seconds, the packet rate peaks at nearly 70 packets/sec, then levels off and maintains an average of 50–55 packets/sec. This means that after the spike packeterna blev stabila 50 packet/sec.
+
+C3b. Visa I/O-grafen över streamingtrafiken till mottagaren.
+Blir det några ordningsfel över huvud taget? Ser du några paketomsändningar?
+(TCP kan ju begära dessa om paket tappas).
+    Ja, några omsändningar observerades, vilket är normalt för TCP vid hög belastning eller om mottagarens buffert blir full. TCP hanterade detta genom att retransmission automatiskt.
+
+C3c. Filtrera och visa en I/O-graf över ACK-paketens trafik från mottagaren tillbaka till
+sändaren (dvs omvänd filtrering)

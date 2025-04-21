@@ -1,0 +1,38 @@
+Del D: Sammanfattning
+Redovisning Del D
+Frågor att besvara i rapporten
+
+D1. Resonera kort kring jämförelse mellan UDP och TCP!
+Beskriv fördelar/nackdelar generellt samt om dina praktiska observationer stämmer med
+protokollens egenskaper.
+
+    TCP:
+        - Sends packets as a stream.
+        - Connection-oriented: Uses a 3-way handshake to establish a connection:
+            Client → Server: SYN
+            Server → Client: SYN-ACK
+            Client → Server: ACK
+
+        - Reliable: Guarantees delivery of all data.
+        - Ordered: Ensures that packets arrive in the same order they were sent.
+        - Automatic retransmissions: If a packet is lost or delayed, TCP resends it.
+        - Flow control and congestion control: Adjusts sending speed based on network conditions.
+        - Connection termination: Uses FIN and ACK flags to close the connection.
+        Example usage: Sending emails, files..
+        Practical observation: When tested TCP under high load (50 packets/sec), I observed retransmissions and ZeroWindow conditions. This confirms that TCP tries to avoid data loss by slowing down or resending packets, just as the protocol is designed to do. TCP behaved as expected, especially when the receiver was overloaded or had a small buffer(when i tested with phone).
+
+    UDP:
+        - Connection less.
+        - Sends packets as datagrams.
+        - Not relaiable or order garanteed so packets can be lost or delayed.
+        - Faster than TCP but less reliability. 
+        - No congestion or flow control: Sends at full rate regardless of network conditions.
+        Example usage: Live streams, video sensors..
+
+
+D2. Skriv en personlig reflektion kring inlämningsuppgiften som helhet.
+Råkade du ut för problem? Hur löste du eventuellt dessa?
+Har uppgiften varit relevant i kursen?
+    - Ärligt uppgiften var lite tråkigt men väldigt användbar och lärorikt, jag lärt mig mycket men bästa var det att jag kunde läsa Wireshark på ett bra sätt nu och förstå problemet direkt. Nu har jag oerhört bra förståelse på Networking, protocols, vilka bygt på TCP(HTTP, HTTPS, SMTP, IMAP, FTP, SSH ) o vilka på UDP(VOip, DHCP, DNS ).
+    - Jag hade flera problem, så att jag jobbade först med Android mobile och med min laptop under samma LAN fungerade bra för UDP sedan med TCP så lånade jag en laptop av en vän så fungerade TCP, jag anser pga att Android mobile hade en lite Buffer så kunde inte behandla alla packeter som en server och så connection failed.
+    - Uppgiften var relevant så lärt vi i detaljer TCP, UDP vilka är viktigaste i kursen anser jag, samt lärt använda Wireshark verktyg vilket är oerhört viktigt för Networks inspecting.

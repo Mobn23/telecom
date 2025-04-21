@@ -1,0 +1,8 @@
+B3a- Hur många paket/sek skickas om du använder Sleep(0) ?
+- 3k packets/sec
+
+B3b- Hur många paket/sek skickas om Sleep-funktionen tas bort ?
+- Almost 3700 packet/sec but with a lot of fluctuations(for many factors like the wifi and the receiver is an Android mobile device...etc).
+
+B3c- Vad tror du kan begränsa antalet paket/sek som skickas i B3a och B3b ?
+- Stora stream av paketer eller bredband kan begränsa också.

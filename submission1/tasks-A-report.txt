@@ -1,22 +1,22 @@
-I have tested the exemple code in Canvas on two devices conneted to the same local network,i ran the client scripts on a laptop while ran the servers on an Android mobile device. So i installed Acode & Termux on my mobile phone as i used Vs-code on the laptop on Windows os.
+I have tested the exemple code in Canvas on two devices conneted to the same local network,i ran the client scripts on a laptop while ran the servers on an Android mobile device. So i installed Acode & Termux on my mobile phone as i used Vs-code on the laptop on Windows OS.
 
 I ran the scripts many times & observed the packages on Wireshark. I specially observed the Protocols, Source & Destination IPs, length and info.
 
-In UDP the connection is quite simple in terms of packages exchange so the packages directly transfered from the client to the server all in one package (without establishing a connection)
-For testing I typed fgd and saw the package transfered from the clent IP to the server IP then got FGD as response from the server to the client in one package. I applied the filter (udp.port == 12000) and decoded the packages manually on Wireshark so got overview on the Packages trasfered using only protocol UDP on the port 12000 we are running the socket on.
+In UDP the connection is quite simple in terms of packages exchange so the packages directly transfered from the client to the server within datagrams (without establishing a connection)
+For testing I typed "fgd" (Random letters) and saw the package transfered from the client IP to the server IP then got FGD as response from the server to the client in one datagram. I applied the filter (udp.port == 12000) and decoded the packages manually on Wireshark so got overview on the Packages trasfered using only protocol UDP on the port 12000 which we are running the socket on.
 
-As for TCP Protocol so I ran the scripts as i did with the UDP Protocol, on the same devices & on the same Wireshark Tool I observed packages transfered using filter (tcp.port == 12000) this time so i could see:
+As for TCP Protocol so I ran the scripts as i did with the UDP Protocol, on the same devices & on the same Wireshark Tool I observed packages transfered using filter (tcp.port == 12000) so i could see:
 
 TCP Handshake (Connection Setup):
-SYN: Client's IP requests a connection to Server's IP on port 12000.
-SYN-ACK: Server acknowledges.
-ACK: Client confirms → Connection established.
+    SYN: Client's IP requests a connection to Server's IP on port 12000.
+    SYN-ACK: Server acknowledges.
+    ACK: Client confirms → Connection established.
 
 Data Exchange:
-Client sends 3 bytes of data (lower case letters).
-Server acknowledges and responds with 3 bytes of data(upper letters).
-TCP Connection Termination
+    Client sends 3 bytes of data (lower case letters).
+    Server acknowledges and responds with 3 bytes of data(upper letters).
+    TCP Connection Termination
 
 Server sends FIN, ACK to close the connection.
 Client acknowledges and sends FIN, ACK in return.
-Server acknowledges → Connection closed. 
+Server acknowledges → Connection closed.
